@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Выбрать год</title>
+    <link rel="stylesheet" href="/static/css/style.css/">
+</head>
+<body>
+<a href="/movies"><input type="submit" class="button_link" value="Назад к поиску"></a>
+<a href="/movies"><input type="submit" class="button_link" value="На главную"></a>
+
+<b><p class="text_single">Результаты поиска: {{ start }} - {{ end }}</p></b>
+{% for i in movie %}
+    <center><table border="1" width="50%" cellpadding="5">
+        <tr>
+            <th width="50%"><a href="/movie/{{ i[1] }}">{{ i[1] }}</a></th>
+            <th width="50%">(Год выпуска: {{ i[3] }})</th>
+        </tr>
+
+    </table></center>
+{% endfor %}
+</body>
+</html>

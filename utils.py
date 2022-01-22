@@ -1,35 +1,10 @@
 import pprint
 import sqlite3
 
-# def get_read_db():
-#     with sqlite3.connect('netflix.db') as connection:
-#         cursor = connection.cursor()
-#
-#         query = """
-#         SELECT *
-#         FROM netflix
-#         """
-#         db = cursor.execute(query)
-#         return db
-#
-# def get_db_id(id):
-#
-#     for i in get_read_db():
-#         if id == i[0]:
-#
-#             dict = {"title": i[2],
-#                     "country": i[5],
-#                     "release_year": i[7],
-#                     "genre": i[11],
-#                     "description": i[12],
-#                 }
-#             return dict
-
 
 def get_database():
     '''Получаение кортежей из БД'''
     with sqlite3.connect("netflix.db") as con:
-        lists_base = []
         cur = con.cursor()
         query = (
             f"SELECT * FROM netflix")
@@ -49,7 +24,8 @@ def get_film_in_base(word):
 
         for i in test:
             show_id = i[0]
-            return show_id #show_id
+            return show_id  # show_id
+
 
 def movie_search(show_id):
     '''Получение словаря для вывода информации по фильму'''
@@ -65,12 +41,35 @@ def movie_search(show_id):
 
             if show_id == i[0]:
                 dict = {"title": i[1],
-                    "country": i[2],
-                    "release_year": i[3],
-                    "genre": i[4],
-                    "description": i[5],
-                    }
+                        "country": i[2],
+                        "release_year": i[3],
+                        "genre": i[4],
+                        "description": i[5],
+                        }
                 return dict
             else:
                 return 'Ничего не найдено'
+
+
+def years_to_years(start, end):
+    '''Получение словаря для вывода информации по фильму'''
+    with sqlite3.connect("netflix.db") as con:
+
+        cur = con.cursor()
+        query = (
+            f"SELECT show_id, title, country, release_year, listed_in, description FROM netflix WHERE release_year BETWEEN {start} and {end} LIMIT 100")
+        result = cur.execute(query)
+        db = cur.fetchall()
+        return db
+
+def list_years():
+    '''Получение словаря для вывода информации по фильму'''
+    with sqlite3.connect("netflix.db") as con:
+        lists_base = []
+        cur = con.cursor()
+        query = (
+            f"SELECT  release_year FROM netflix WHERE release_year  GROUP BY release_year ORDER BY release_year DESC ")
+        result = cur.execute(query)
+        db = cur.fetchall()
+        return db
 

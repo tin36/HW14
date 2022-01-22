@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Выбрать год</title>
+    <link rel="stylesheet" href="/static/css/style.css/">
+</head>
+<body>
+<p class="text_single">Выберите до какого года выполнить поиск</p>
+{%  for i in list_year %}
+<div><a href="{{ start }}/{{ i[0] }}" class="p_green">{{ i[0] }}</a></div>
+    <hr>
+
+{%  endfor %}
+</body>
+</html>
