@@ -50,7 +50,12 @@ def years_movie(start, end):
     # end = request.args.get('end', '')
     # list_year = list_years()
     movie = years_to_years(start, end)
-    return render_template('year.html', movie=movie, start=start, end=end)
+    number_list = []
+
+    for i in range(100):
+        number_list.append(i)
+
+    return render_template('year.html', movie=movie, start=start, end=end, number_list=number_list)
 
 if __name__ == "__main__":
     app.run(debug=True)

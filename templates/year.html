@@ -7,17 +7,30 @@
 </head>
 <body>
 <a href="/movies"><input type="submit" class="button_link" value="Назад к поиску"></a>
-<a href="/movies"><input type="submit" class="button_link" value="На главную"></a>
+<a href="/"><input type="submit" class="button_link" value="На главную"></a>
 
 <b><p class="text_single">Результаты поиска: {{ start }} - {{ end }}</p></b>
-{% for i in movie %}
-    <center><table border="1" width="50%" cellpadding="5">
-        <tr>
-            <th width="50%"><a href="/movie/{{ i[1] }}">{{ i[1] }}</a></th>
-            <th width="50%">(Год выпуска: {{ i[3] }})</th>
-        </tr>
 
-    </table></center>
-{% endfor %}
+
+<center>
+    <table border="1" width="50%" cellpadding="3" bordercolor="orange" class="demotable">
+        <tr>
+        <tr>
+            <th width="10%">№</th>
+            <th width="70%">Название</th>
+            <th width="20%">Год выпуска</th>
+        </tr>
+        {% for i in movie %}
+
+            <tr>
+                <th width="10%"><a href="#">{{ number_list }}</a></th>
+                <th width="70%"><a href="/movie/{{ i[1] }}">{{ i[1] }}</a></th>
+                <th width="20%">{{ i[3] }}</th>
+            </tr>
+        {% endfor %}
+
+    </table>
+</center>
+
 </body>
 </html>
