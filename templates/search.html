@@ -2,20 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Поиск по названию</title>
+    <link rel="stylesheet" href="/static/css/style.css/">
 </head>
-<body>
+<body><center><a href="/"><input type="submit" class="button_link" value="На главную"></a></center>
 <form action="">
-<input type="search" class="search__input"  name='s'>
+    <div>
+<input type="search" name='s'></div>
+    <br>
+
 <div>
+    {% if s=='' %}
+    <a href="/search" class="button_link">Введите данные для поиска</a>
 
-    <p>Название: {{m_search.title}}</p>
-    <p>Страна: {{m_search.country}}</p>
-    <p>Год релиза: {{m_search.release_year}}</p>
-    <p>Жанр: {{m_search.genre}}</p>
-    <p>Описание: {{m_search.description}}</p>
-
+    {% elif m_search.title %}
+        <p class="text_single">Результат</p>
+    <a href="/movie/{{m_search.title}}" class="button_link">{{m_search.title}}</a>
+    {% else %}
+        <p class="text_single">Результат</p>
+    <a href="/search" class="button_link">Ничего не нашли</a>
+    {% endif %}
 </div>
-    </form>
+</form>
 </body>
 </html>

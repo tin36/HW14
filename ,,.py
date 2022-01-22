@@ -1,14 +1,14 @@
 import sqlite3
-words = 'love'
-with sqlite3.connect('netflix.db') as connection:
-    cursor = connection.cursor()
 
-    query = """
-    SELECT title 
-    FROM netflix
-    WHERE title LIKE '%{words}%'
-    """
-    db = cursor.execute(query)
+def get_database():
+    '''Получаение кортежей из БД'''
+    with sqlite3.connect("netflix.db") as con:
+        lists_base = []
+        cur = con.cursor()
+        query = (
+            f"SELECT * FROM netflix")
+        result = cur.execute(query)
+        db = cur.fetchall()
+        return db
 
-    for i in db:
-        print(i)
+print(get_database())

@@ -1,0 +1,65 @@
+/* Сперва общие правила */
+
+* {
+    box-sizing: border-box
+}
+
+/* Потом селекторы по тегам */
+
+html {
+
+}
+
+main {
+    width: 300px;
+    margin: 0px auto;
+}
+
+p {
+
+}
+
+a {font-size: 150%;
+font-weight: normal;
+    text-decoration: none;
+}
+
+
+html {text-align: center}
+
+.button_link {
+
+    text-decoration: none;
+
+    background-color: orange;
+    width: 50%;
+    margin-top: 5px;
+    height: 45px;
+    color: white;
+    margin-bottom: 7px;
+    border-radius: 7px;
+    font-size: 17px;
+    border: solid 1px #fd986c
+
+}
+
+.text_single  {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px
+
+}
+
+.p_green {
+background-color: #A3D9C9;
+     width: 80%;
+    border-width: 240px;
+    border-radius: 5px;
+
+    font-size: 20px;
+    border: solid 2px green;
+}
