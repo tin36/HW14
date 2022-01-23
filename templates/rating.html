@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Возрастные категории</title>
+    <link rel="stylesheet" href="/static/css/style.css/">
+</head>
+<body><center><a href="/"><input type="submit" class="button_link" value="На главную"></a></center>
+<body>
+
+<a href="/rating/children"><input type="submit" class="button_link" value="Детские"></a>
+<a href="/rating/family"><input type="submit" class="button_link" value="Семейные"></a>
+<a href="/rating/adult"><input type="submit" class="button_link" value="Взрослые"></a>
+
+
+
+<center>
+    <table border="1" width="50%" cellpadding="3" bordercolor="orange" class="demotable">
+        <tr>
+        <tr>
+
+            <th width="30%">Название</th>
+            <th width="60%">Описание</th>
+            <th width="10%">Рейтинг</th>
+        </tr>
+
+        {% for i in movie_list %}
+
+            <tr>
+
+                <th width="30%"><a href="/movie/{{ i.title }}">{{ i.title }}</a></th>
+                <th width="60%">{{ i.description }}</th>
+                <th width="10%">{{ i.rating }}</th>
+            </tr>
+        {% endfor %}
+
+    </table>
+</center>
+
+
+</body>
+</html>

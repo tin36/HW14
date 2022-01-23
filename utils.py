@@ -52,14 +52,15 @@ def movie_search(show_id):
 
 
 def years_to_years(start, end):
-    '''Получение словаря для вывода информации по фильму'''
+    '''Получение фильмов из даипазона дат'''
     with sqlite3.connect("netflix.db") as con:
-
+        movie = []
         cur = con.cursor()
         query = (
             f"SELECT show_id, title, country, release_year, listed_in, description FROM netflix WHERE release_year BETWEEN {start} and {end} LIMIT 100")
         result = cur.execute(query)
         db = cur.fetchall()
+
         return db
 
 def list_years():
@@ -73,3 +74,28 @@ def list_years():
         db = cur.fetchall()
         return db
 
+
+def rating_db():
+    '''Получение рейтингов фильмов'''
+    with sqlite3.connect("netflix.db") as con:
+        cur = con.cursor()
+        query = (
+            f"SELECT rating FROM netflix GROUP BY rating")
+        result = cur.execute(query)
+        db = cur.fetchall()
+        return db
+
+def rating_movie_db():
+    '''Получение пары: рейтинг/фильм'''
+    with sqlite3.connect("netflix.db") as con:
+        cur = con.cursor()
+        query = (
+            f"SELECT title, rating, description FROM netflix ")
+        result = cur.execute(query)
+        db = cur.fetchall()
+        return db
+
+
+
+
+print(rating_movie_db())
