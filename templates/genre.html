@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Жанры</title>
+    <link rel="stylesheet" href="/static/css/style.css/">
+</head>
+<body>
+<center><a href="/"><input type="submit" class="button_link" value="На главную"></a></center>
+<body>
+<div>
+    <center>
+        <table border="1" width="50%" cellpadding="3" bordercolor="orange" class="demotable">
+            <tr>
+            <tr>
+                <th width="70%"><a href="/genre/">Жанры</a></th>
+
+            </tr>
+            {% for i in genre %}
+                <tr>
+                <th width="70%"><a href="/genre/{{ i }}">{{ i }}</a></th>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+</div>
+<div>
+    <center>
+        <table border="1" width="50%" cellpadding="3" bordercolor="orange" class="demotable">
+            <tr><tr>
+                <th width="70%">Результат</th></tr>
+                {% for i in movie_list %}
+                    <tr>
+                        <th width="70%"><a href="/movie/{{ i.title }}">{{ i.title }}</a></th>
+                    </tr>
+                {% endfor %}
+        </table>
+    </center>
+
+</div>
+</body>
+</html>
